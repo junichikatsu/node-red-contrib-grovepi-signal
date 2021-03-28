@@ -1,0 +1,50 @@
+<script type="text/javascript">
+    RED.nodes.registerType('get-signal',{
+        category: 'function',
+        color: '#DDDDDD',
+        defaults: {
+            name: { value:"" },
+            pin: { value:"",required:true,validate:RED.validators.number() },
+            threshold: { value:1,required:true,validate:RED.validators.number() },
+        },
+        inputs:0,
+        outputs:1,
+        icon: "trigger.png",
+        label: function() {
+            return this.name||"Pin: "+this.pin ;
+        },
+        paletteLabel: 'Light',
+        labelStyle: function() {
+            return this.name?"node_label_italic":"";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="get-signal">
+    <div class="form-row">
+        <label for="node-input-pin"><i class="fa fa-circle"></i> <span>Port</span></label>
+        <select type="text" id="node-input-pin" style="width: 250px;">
+            <option value="0">Analog 0</option>
+            <option value="1">Analog 1</option>
+            <option value="2">Analog 2</option>
+         </select>
+         &nbsp;<span id="pitype"></span>
+    </div>
+    <div class="form-row">
+        <label for="node-input-threshold"><i class="fa fa-circle"></i><span> 閾値</span></label>
+        <input type="number" id="node-input-threshold" min="0" max="1024" step="1"
+            value="1" style="display: inline-block; width: 80px;">
+        &nbsp;<span id="pitype"></span>
+    </div>
+    <br/>
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> <span>Name</span></label>
+        <input type="text" id="node-input-name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="get-signal">
+    <p>Raspberry Pi GrovePi Light Sensor node.</p>
+    <p>Will read the data from the selected analog port.</p>
+    <p><b>Note:</b> we are using the actual physical port numbers on the GrovePi card as they are easier to locate.</p>
+</script>
