@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-grovepi-signal",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "dependencies": {
     "@ia-cloud/node-grovepi": "^2.2.2"
   },
