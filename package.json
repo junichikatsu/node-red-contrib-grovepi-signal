@@ -4,6 +4,9 @@
   "dependencies": {
     "@ia-cloud/node-grovepi": "^2.2.2"
   },
+  "keywords": [
+    "node-red"
+  ],
   "node-red" : {
     "nodes": {
       "get-signal": "node.js"
